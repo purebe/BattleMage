@@ -40,6 +40,7 @@ public class SpellCaster {
 	private boolean checkIncantation() {		
 		for (Spell spell : Spell.values()) {
 			if (currentIncantation.equals(Spell.getIncantation(spell))) {
+				Minecraft.getMinecraft().thePlayer.sendChatMessage("You cast: " + spell.toString());
 				Main.network.sendToServer(new CastSpellMsg(spell, Minecraft.getMinecraft().thePlayer.getLookVec()));
 				cooldown = true;
 				coolDownTicks = 20;
@@ -51,6 +52,7 @@ public class SpellCaster {
 			System.out.println(currentIncantation);
 			cooldown = true;
 			System.out.println("Your spell fizzled out and nothing happened");
+			Minecraft.getMinecraft().thePlayer.sendChatMessage("Your spell fizzled out and nothing happened");
 			coolDownTicks = 20;
 			return true;
 		}
@@ -62,6 +64,7 @@ public class SpellCaster {
 			System.out.println(currentIncantation);
 			currentIncantation.clear();
 			System.out.println("You wave your wand around and begin to cast a new spell!");
+			Minecraft.getMinecraft().thePlayer.sendChatMessage("You wave your wand around and begin to cast a new spell!");
 			cooldown = true;
 			coolDownTicks = 5;
 			currentSpell = Spell.Cancel;

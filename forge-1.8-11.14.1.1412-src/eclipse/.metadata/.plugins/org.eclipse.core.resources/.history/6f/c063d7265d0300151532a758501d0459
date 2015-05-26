@@ -1,0 +1,7 @@
+package purebe.battlemage.magic;
+
+public class Teleport implements ISpell {
+	@Override
+	public void cast() {
+	}
+}

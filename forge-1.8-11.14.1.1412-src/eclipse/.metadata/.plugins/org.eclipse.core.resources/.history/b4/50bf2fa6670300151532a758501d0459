@@ -1,0 +1,54 @@
+package purebe.battlemage.magic;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.Vec3;
+
+public class Teleport implements ISpell {
+	final EntityPlayer     player;
+	final Vec3             playerLookat;
+	final int              intensity;
+	final int              max_distance;
+	final int              min_distance;
+	
+	public Teleport(EntityPlayer player, Vec3 playerLookat) {
+		this.player = player;
+		this.playerLookat = playerLookat;
+		this.intensity = 1;
+		this.max_distance = 40;
+		this.min_distance = 10;
+	}
+	
+	@Override
+	public void cast() {
+		Vec3 telePosition = null;
+		for (int i = max_distance; max_distance >= min_distance; --i) {
+			telePosition = new Vec3(player.posX + playerLookat.xCoord * i,
+			                       player.posY,
+			                       player.posZ + playerLookat.zCoord * i);
+			if (hasHeadroom(telePosition)) {
+				player.setPositionAndUpdate(telePosition.xCoord, telePosition.yCoord, telePosition.zCoord);
+				return;
+			}
+		}
+		//System.out.println(player.getDisplayName().getFormattedText() + "'s teleport spell fizzled out.");
+	}
+	
+	protected boolean hasHeadroom(Vec3 position) {
+		BlockPos pos = new BlockPos((int)position.xCoord, (int)position.yCoord, (int)position.zCoord);
+		if (!player.worldObj.getBlockState(pos).getBlock().isFullCube() ||
+		    !player.worlldObj.getBlockState(pos).getBlock().isOpaqueCube()) {
+			if (player.worldObj.getBlockState(pos.add(0, 1, 0)) == Blocks.air) {
+				return true;
+			}
+			else{
+				System.out.println("No headroom at head level: " + pos.add(0, 1, 0));
+			}
+		}
+		else {
+			System.out.println("No headroom at leg level: " + pos);
+		}
+		return false;
+	}
+}

@@ -12,8 +12,8 @@ import purebe.battlemage.blocks.BattleMageBlocks;
 public class Illuminate implements ISpell {
 	final static int MAX_SIZE = 12;
 	
-	EntityPlayer player;
-	int          intensity;
+	final EntityPlayer player;
+	final int          intensity;
 	
 	public Illuminate(EntityPlayer player) {
 		this.player = player;

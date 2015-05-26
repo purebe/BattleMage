@@ -118,6 +118,9 @@ public class GuiEvents {
 		case None:
 			GlStateManager.color(1f, 0f, 0f, alpha);
 			break;
+		case Teleport:
+			GlStateManager.color(0.81f, 0.56f, 0.94f, alpha);
+			break;
 		default:
 			break;
 		}

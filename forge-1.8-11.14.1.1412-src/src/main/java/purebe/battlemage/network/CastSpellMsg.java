@@ -9,6 +9,7 @@ import purebe.battlemage.magic.ArtilleryCattle;
 import purebe.battlemage.magic.ISpell;
 import purebe.battlemage.magic.Illuminate;
 import purebe.battlemage.magic.Spells.Spell;
+import purebe.battlemage.magic.Teleport;
 
 public class CastSpellMsg implements IMessage {
 	Spell spell;
@@ -51,6 +52,9 @@ public class CastSpellMsg implements IMessage {
 						break;
 					case ArtilleryCattle:
 						spell = new ArtilleryCattle(finalContext.getServerHandler().playerEntity, finalMsg.playerLookat);
+						break;
+					case Teleport:
+						spell = new Teleport(finalContext.getServerHandler().playerEntity, finalMsg.playerLookat);
 						break;
 					default:
 						break;

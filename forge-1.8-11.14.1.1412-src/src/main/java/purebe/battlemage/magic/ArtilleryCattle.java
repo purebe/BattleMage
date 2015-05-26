@@ -5,10 +5,10 @@ import net.minecraft.util.Vec3;
 import purebe.battlemage.entities.ArtilleryCattleEntity;
 
 public class ArtilleryCattle implements ISpell {
-	EntityPlayer           player;
-	ArtilleryCattleEntity  babyCow;
-	Vec3                   playerLookat;
-	int                    intensity;
+	final EntityPlayer           player;
+	final Vec3                   playerLookat;
+	final int                    intensity;
+	ArtilleryCattleEntity        babyCow;
 	
 	
 	public ArtilleryCattle(EntityPlayer player, Vec3 playerLookat) {

@@ -6,7 +6,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public class ArtilleryCattleEntity extends EntityCow {
-	protected final float dragDampingFactor = 1.5f; 
 	public ArtilleryCattleEntity(World worldIn) {
 		super(worldIn);
 	}
