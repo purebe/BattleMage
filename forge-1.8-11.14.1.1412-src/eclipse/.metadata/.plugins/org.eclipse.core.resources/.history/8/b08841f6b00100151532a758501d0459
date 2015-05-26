@@ -1,0 +1,21 @@
+package purebe.battlemage.magic;
+
+import java.util.List;
+
+import purebe.battlemage.magic.SpellCaster.SpellSymbol;
+
+public class Illuminate implements ISpell {
+
+	@Override
+	public List<SpellSymbol> getIncantation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void cast() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

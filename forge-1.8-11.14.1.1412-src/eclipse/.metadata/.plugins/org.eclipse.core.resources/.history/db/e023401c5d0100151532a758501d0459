@@ -1,0 +1,16 @@
+package purebe.battlemage.magic;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import purebe.battlemage.magic.SpellCasting.SpellSymbols;
+
+public final class Spells {
+	public static final List<SpellSymbols> Illuminate = new ArrayList<SpellSymbols>(3);
+	
+	public Spells() {
+		Illuminate.add(SpellSymbols.White);
+		Illuminate.add(SpellSymbols.Nature);
+		Illuminate.add(SpellSymbols.Chaos);
+	}
+}

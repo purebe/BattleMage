@@ -1,0 +1,13 @@
+package purebe.battlemage.main;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import purebe.battlemage.magic.ISpell;
+import purebe.battlemage.magic.Illuminate;
+
+public final class Spells {
+	public enum Spell {
+		Illuminate
+	}	
+}

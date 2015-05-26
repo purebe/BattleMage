@@ -1,0 +1,37 @@
+package purebe.battlemage.eventhandlers;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.WorldRenderer;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+
+import org.lwjgl.opengl.GL11;
+
+public class GuiEvents {
+	@SubscribeEvent
+	public void RenderGameOverlayEvent(RenderGameOverlayEvent event) {
+		double posX = event.resolution.getScaledWidth() / 2;
+		double posY = event.resolution.getScaledHeight() / 2;
+		double height = 32 / event.resolution.getScaleFactor();
+		double width = 32 / event.resolution.getScaleFactor();
+		double zLevel = 100;
+		double textureX = 0;
+		double textureY = 0;
+		
+		Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation("battlemage:textures/gui/white_symbol.png"));
+
+		Tessellator tessellator = Tessellator.getInstance();
+        WorldRenderer worldrenderer = tessellator.getWorldRenderer();
+        GL11.glIsEnabled(GL11.GL_BLEND)
+        GL11.glGetInteger(GL11.GL_BLEND);
+        GL11.glEnable(GL11.GL_BLEND);
+        worldrenderer.startDrawingQuads();
+        worldrenderer.addVertexWithUV(posX, posY + height, zLevel, 0, 1);
+        worldrenderer.addVertexWithUV(posX + width, posY + height, zLevel, 1, 1);
+        worldrenderer.addVertexWithUV(posX + width, posY, zLevel, 1, 0);
+        worldrenderer.addVertexWithUV(posX, posY, zLevel, 0, 0);
+        tessellator.draw();
+	}
+}

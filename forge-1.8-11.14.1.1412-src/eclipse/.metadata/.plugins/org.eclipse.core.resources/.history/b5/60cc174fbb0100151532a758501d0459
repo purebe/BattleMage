@@ -1,0 +1,31 @@
+package purebe.battlemage.network;
+
+import io.netty.buffer.ByteBuf;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+
+public class CastSpellMsg implements IMessage {
+	public CastSpellMsg() {}
+	
+	@Override
+	public void fromBytes(ByteBuf buf) {
+	}
+	
+	@Override
+	public void toBytes(ByteBuf buf) {
+	}
+	
+	public static class CastSpellMsgHandler implements IMessageHandler<CastSpellMsg, IMessage> {
+		@Override
+		public IMessage onMessage(CastSpellMsg msg, MessageContext context) {
+			context.getServerHandler().playerEntity.getServerForPlayer().addScheduledTask(new Runnable() {
+				@Override
+				public void run() {
+					System.out.println("Casting a spell!");
+				}
+			});
+			return null;
+		}
+	}
+}

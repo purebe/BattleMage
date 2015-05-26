@@ -1,0 +1,10 @@
+package purebe.battlemage.magic;
+
+import java.util.Arrays;
+import java.util.List;
+
+import purebe.battlemage.magic.Illuminate;
+
+public final class Spells {
+	
+}

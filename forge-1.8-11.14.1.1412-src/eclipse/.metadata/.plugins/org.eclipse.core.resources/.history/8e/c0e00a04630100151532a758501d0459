@@ -1,0 +1,27 @@
+package purebe.battlemage.bindings;
+
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.InputEvent;
+import purebe.battlemage.magic.SpellCaster.SpellSymbol;
+import purebe.battlemage.main.Main;
+
+public class KeyInputHandler {
+	
+	public KeyInputHandler() {
+	}
+	
+	@SubscribeEvent
+    public void onKeyInput(InputEvent.KeyInputEvent event) {
+		if (KeyBindings.white.isPressed()) {
+			((ClientProxy)Main.proxy).castSymbol(SpellSymbol.White);
+        }
+		if (KeyBindings.black.isPressed()) {
+        }
+		if (KeyBindings.chaos.isPressed()) {
+        }
+		if (KeyBindings.nature.isPressed()) {
+        }
+		if (KeyBindings.power.isPressed()) {
+        }
+    }
+}

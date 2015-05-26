@@ -1,0 +1,18 @@
+package purebe.battlemage.magic;
+
+import java.util.Arrays;
+import java.util.List;
+
+import purebe.battlemage.magic.SpellCaster.SpellSymbol;
+
+public final class Spells {
+	public static final List<SpellSymbol> Illuminate = Arrays.asList(SpellSymbol.White, SpellSymbol.Nature, SpellSymbol.Chaos);
+	
+	public class Illuminate implements ISpell {
+		@Override
+		public void cast() {
+			
+			
+		}
+	}
+}

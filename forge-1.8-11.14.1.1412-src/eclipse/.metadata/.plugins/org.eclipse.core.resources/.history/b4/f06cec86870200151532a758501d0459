@@ -1,0 +1,8 @@
+package purebe.battlemage.magic;
+
+public class ArtilleryCattle implements ISpell {
+
+	@Override
+	public void cast() {
+	}
+}

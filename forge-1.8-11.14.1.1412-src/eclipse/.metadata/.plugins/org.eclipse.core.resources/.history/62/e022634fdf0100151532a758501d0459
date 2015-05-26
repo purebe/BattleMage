@@ -1,0 +1,18 @@
+package purebe.battlemage.magic;
+
+import net.minecraft.entity.player.EntityPlayer;
+
+public class Illuminate implements ISpell {
+	EntityPlayer player;
+	int intensity;
+	public Illuminate(EntityPlayer player) {
+		this.player = player;
+		this.intensity = 10;
+	}
+
+	@Override
+	public void cast() {
+		System.out.println("You cast Illuminate!");
+		
+	}
+}

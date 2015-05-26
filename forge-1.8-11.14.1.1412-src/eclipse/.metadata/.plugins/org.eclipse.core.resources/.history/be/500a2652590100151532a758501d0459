@@ -1,0 +1,20 @@
+package purebe.battlemage.magic;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class SpellCasting {
+	public enum SpellSymbols {
+		White, Black, Chaos, Nature, Power
+	}
+	
+	public List<SpellSymbols> currentIncantation;
+	
+	public SpellCasting() {
+		currentIncantation = new ArrayList<SpellSymbols>();
+	}
+	
+	public boolean addSymbol(SpellSymbols symbol) {
+		currentIncantation.add(symbol);
+	}
+}

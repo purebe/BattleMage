@@ -1,0 +1,74 @@
+Symbols:	White, Black, Chaos, Nature, Power
+			[F]    [B]    [C]    [V]     [G]
+
+Mission Statement:
+	Prevent the arms race.  Mages are NOT immortal.  They are very capable and powerful, but not OVERPOWERED.  Further, they should still fear death.
+	The player, even the most advanced mage, should not feel immortal.  There should be ample challenge.  Game play without challenge is BORING.
+	Minecraft poses a lot of challenges by default, this mod should make those challenges stand out and provide unique solutions, but not a panacea.
+	
+	Trade offs are key, donning a wand and a wizard suit should open you up to physical damage, but enhance your offensive and utility capabilities.
+	The player must make choices that are not obvious.  A black magi should be feared for his ability to cause untold destruction, but the brighter
+	the candle, the faster it burns.  White magi are the greatest of allies, but alone they do not stand.
+			
+			
+Systems:
+	
+	NAME								STATUS											NOTES
+	Incantation System					IMPLEMENTED										The symbol animations need to be polished.  The global cool downs need to be balanced
+																						(and it needs to have some on screen representation.)  Hotkeys might need to be remapped.
+	Spell Cool Downs					PLANNING STAGE									Each spell should have it's own cool down.  This needs to be displayed on screen in the
+																						form of spell icons with a clock-wipe (and probably a scale/fade out).
+	Cast Feedback						PLANNING STAGE									Maybe put the cast messages directly in the chat box?  Probably.
+	Wands and Armor						PLANNING STAGE									School specific buffs for wearing a full set (ie, full black magi robes gives you special
+																						effects on black-magic spells.)  Each individual piece increases your mana pool.  Wearing
+																						mix-and-match set pieces increases your spell intensity in each school you are wearing
+																						roughly proportionately.
+																						Toying around with the idea of the last spell cast by a wand before it breaks being super
+																						powerful.
+																						Wooden wand has set durability.  Each tier of wand above it comes with increasingly faster
+																						self-repair, although the best self-repair should still be fairly slow.
+	Mana								PLANNING STAGE									Needs to be planned out.
+	Places of Power						PLANNING STAGE									Needs to be planned out.
+	Curse/debuff System					PRE-PLANNING STAGE								Needs to be decided if it will be included or not.
+	In-game Spell Browser				PLANNING STAGE									No idea how this should be done yet.  A book is the classic example but is not super 
+																						user friendly.  It would be nice to have some kind of "mage training" or something to 
+																						guide the player towards learning the spells as second nature.
+	Progression System					PRE-PLANNING STAGE								Not sure if this is needed, but it would keep the mod interesting for survival players.
+																						On the other hand it would impede battle style play such as in "The Walls."  Coming up
+																						with a system that satisfies both use cases would be really nice.
+	Mod Wiki							PLANNING STAGE									Needs to be done.  Will have a list of all the spells, their runes, mana cost, short
+																						description.  Same for basically everything else in the mod too.
+	Git Repo							DO IT..NOW!										You should really take the time to set this up already you dummy.
+	Sound System						PLANNING STAGE									Sounds are needed to emphasis when a spell is successfully cast or fizzles out.  Probably
+																						for flavour in other areas too but use sparingly.
+	
+Spells:
+
+	NAME								STATUS											NOTES
+	Artillery Cattle					IMPLEMENTED										Needs some balancing, the time-bomb portion is probably way too strong.  One possible
+																						solution is to make it anti-air, where the explosion strength is really low close to
+																						the ground, but increases as it gets higher up in the sky.  It would be very hard to
+																						hit air units but it would do a lot of damage, so maybe balanced.
+	Chaos Gust							PLLANNING										Sends a 360-degree gust of air outward from the player, knocking entities back and
+																						dealing a marginal amount of damage.
+	Illuminate							IMPLEMENTED										Needs work on the algorithm to achieve spreading the lights out a bit better (as to
+																						reduce the # of lights required for a good effect.)  Less lights = less lag.
+																						The proper implementation is probably to determine the ceilings/floor/walls and place
+																						lights sparsely along those (no point in having lights in the open where they aren't
+																						visible.)  Maybe make all the lights disappear at the same time for lag reasons too.
+	Teleport							PLANNING										A short-ranged teleport that can go through walls.  Will need a custom ray tracer.
+																						This will work by trying to move you the FULL distance first, and if that is obstructed
+																						work its way back towards you.  Will have a minimum distance it must go before it works.
+	Wall								PLANNING										Constructs a temporary glass wall 3x1 (bigger with higher intensity) in front and
+																						perpendicular to the player.  It disintegrates over time, piece by piece.
+
+
+
+CREDITS:
+
+	General Mentions:
+		#minecraftforge @ esper.net IRC - general helpfulness and motivation
+		diesieben07	- super knowledgeable and an invaluable help for figuring out some of the arcane bits of forge.
+
+	Spells:
+		Artillery Cattle: ThePsionic, Zaggy1024 - came up with the idea.

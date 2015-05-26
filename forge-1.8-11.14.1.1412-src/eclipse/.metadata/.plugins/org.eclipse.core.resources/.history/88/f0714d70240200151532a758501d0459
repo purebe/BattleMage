@@ -1,0 +1,9 @@
+package purebe.battlemage.eventhandlers;
+
+import net.minecraftforge.fml.common.gameevent.TickEvent.ClientTickEvent;
+
+public class ClientEvents {
+	public void ClientTick(ClientTickEvent event) {
+		((ClientProxy)Main.proxy)
+	}
+}

@@ -1,0 +1,27 @@
+# gradle logs
+.gradle
+
+# IDE project files
+# eclipse
+.project
+.classpath
+.settings/
+
+# IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# build
+bin/
+build/
+run/
+
+# Logs
+crash-reports/
+logs/
+
+# Minecraft world data
+saves/
+world/

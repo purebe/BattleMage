@@ -1,0 +1,5 @@
+package purebe.battlemage.blocks.clientrender;
+
+public class BlockRenderRegister {
+
+}

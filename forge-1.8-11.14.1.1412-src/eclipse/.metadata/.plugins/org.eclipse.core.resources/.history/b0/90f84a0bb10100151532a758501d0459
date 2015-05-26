@@ -1,0 +1,9 @@
+package purebe.battlemage.magic;
+
+import java.util.Arrays;
+import java.util.List;
+
+public final class Spells {
+	private static Spells instance = new Spells();
+	public static List<ISpell> spells = Arrays.asList((ISpell)instance.new Illuminate());
+}

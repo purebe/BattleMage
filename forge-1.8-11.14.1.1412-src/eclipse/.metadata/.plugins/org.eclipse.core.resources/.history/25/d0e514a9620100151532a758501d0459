@@ -1,0 +1,43 @@
+package purebe.battlemage.magic;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class SpellCasting {
+	public enum SpellSymbol {
+		White, Black, Chaos, Nature, Power
+	}
+	
+	public enum Spell {
+		None, Illuminate
+	}
+	
+	public final int MAX_SYMBOLS = 5;
+	public List<SpellSymbol> currentIncantation;
+	public Spell currentSpell = Spell.None;
+	
+	public SpellCasting() {
+		currentIncantation = new ArrayList<SpellSymbol>(5);
+	}
+	
+	public boolean addSymbol(SpellSymbol symbol) {
+		currentIncantation.add(symbol);
+		return checkIncantation();
+	}
+	
+	// Returns true if there is a completed spell incantation in the list,
+	// or if it has reached the max number of symbols. Returns false otherwise.
+	private boolean checkIncantation() {
+		if (currentIncantation.equals(Spells.core.Illuminate)) {
+			currentSpell = Spell.Illuminate;
+			currentIncantation.clear();
+			return true;
+		}
+		if (currentIncantation.size() >= MAX_SYMBOLS) {
+			currentSpell = Spell.None;
+			currentIncantation.clear();
+			return true;
+		}
+		return false;
+	}
+}

@@ -1,0 +1,15 @@
+package purebe.battlemage.entities;
+
+import net.minecraft.entity.passive.EntityCow;
+import net.minecraft.world.World;
+
+public class ArtilleryCattleEntity extends EntityCow {
+	public ArtilleryCattleEntity(World worldIn) {
+		super(worldIn);
+	}
+	
+	@Override
+	public void onLivingUpdate() {
+		System.out.println(this.posX + "," + this.posY + "," + this.posZ);
+	}
+}

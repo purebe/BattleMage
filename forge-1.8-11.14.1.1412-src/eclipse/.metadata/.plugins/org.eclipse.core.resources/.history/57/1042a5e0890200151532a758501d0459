@@ -1,0 +1,7 @@
+package purebe.battlemage.entities;
+
+import net.minecraft.entity.passive.EntityCow;
+
+public class ArtilleryCattleEntity extends EntityCow {
+
+}

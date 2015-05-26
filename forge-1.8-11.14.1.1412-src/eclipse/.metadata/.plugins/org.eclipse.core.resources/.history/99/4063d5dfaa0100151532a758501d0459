@@ -1,0 +1,10 @@
+package purebe.battlemage.magic;
+
+import java.util.List;
+
+import purebe.battlemage.magic.SpellCaster.SpellSymbol;
+
+public interface ISpell {
+	public static final List<SpellSymbol> getIncantation();
+	public void cast();
+}

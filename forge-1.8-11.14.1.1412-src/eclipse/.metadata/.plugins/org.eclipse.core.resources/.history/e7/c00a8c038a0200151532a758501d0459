@@ -1,0 +1,18 @@
+package purebe.battlemage.entities;
+
+import scala.xml.dtd.impl.Base;
+import net.minecraft.entity.passive.EntityCow;
+import net.minecraft.world.World;
+
+public class ArtilleryCattleEntity extends EntityCow {
+	public ArtilleryCattleEntity(World worldIn) {
+		super(worldIn);
+		
+	}
+	
+	
+	@Override
+	public void onLivingUpdate() {
+		super.onLivingUpdate();
+	}
+}

@@ -1,0 +1,60 @@
+package purebe.battlemage.main;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.ModelCow;
+import net.minecraft.client.renderer.entity.RenderCow;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
+import purebe.battlemage.bindings.KeyBindings;
+import purebe.battlemage.bindings.KeyInputHandler;
+import purebe.battlemage.blocks.clientrender.BlockRenderRegister;
+import purebe.battlemage.entities.ArtilleryCattleEntity;
+import purebe.battlemage.eventhandlers.ClientEvents;
+import purebe.battlemage.eventhandlers.GuiEvents;
+import purebe.battlemage.items.clientrender.ItemRenderRegister;
+import purebe.battlemage.magic.SpellCaster;
+import purebe.battlemage.magic.SpellCaster.SpellSymbol;
+
+public class ClientProxy extends CommonProxy {
+	public SpellCaster spellCaster = new SpellCaster();
+	
+	@Override
+	public void preInit(FMLPreInitializationEvent e) {
+		super.preInit(e);
+		FMLCommonHandler.instance().bus().register(new KeyInputHandler());
+		FMLCommonHandler.instance().bus().register(new ClientEvents());
+		MinecraftForge.EVENT_BUS.register(new GuiEvents());
+		
+		RenderingRegistry.registerEntityRenderingHandler(ArtilleryCattleEntity.class, 
+		                                                 new RenderCow(Minecraft.getMinecraft().getRenderManager(),
+		                                                 new ModelCow(), 0.7F));
+		EntityRegistry.registerModEntity(ArtilleryCattleEntity.class, "ArtilleryCattle", 1, 
+		          Main.instance, 80, 3, false);
+	}
+
+	@Override
+	public void init(FMLInitializationEvent e) {
+		super.init(e);
+		KeyBindings.init();
+		ItemRenderRegister.registerItemRenderer();
+		BlockRenderRegister.registerBlockRenderer();
+	}
+
+	@Override
+	public void postInit(FMLPostInitializationEvent e) {
+		super.postInit(e);
+	}
+	
+	public void castSymbol(SpellSymbol symbol) {
+		spellCaster.addSymbol(symbol);
+	}
+	
+	public void clearSymbols() {
+		spellCaster.clearSymbols();
+	}
+}

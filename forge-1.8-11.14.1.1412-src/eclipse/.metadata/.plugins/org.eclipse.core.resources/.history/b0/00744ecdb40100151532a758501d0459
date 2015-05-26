@@ -1,0 +1,5 @@
+package purebe.battlemage.main;
+
+public final class Spells {
+	public static List<ISpell> spells = Arrays.asList((ISpell)new Illuminate());
+}

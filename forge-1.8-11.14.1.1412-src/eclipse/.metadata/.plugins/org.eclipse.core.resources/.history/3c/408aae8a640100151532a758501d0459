@@ -1,0 +1,43 @@
+package purebe.battlemage.main;
+
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import purebe.battlemage.bindings.KeyBindings;
+import purebe.battlemage.bindings.KeyInputHandler;
+import purebe.battlemage.blocks.clientrender.BlockRenderRegister;
+import purebe.battlemage.items.clientrender.ItemRenderRegister;
+import purebe.battlemage.magic.SpellCaster;
+import purebe.battlemage.magic.SpellCaster.SpellSymbol;
+
+public class ClientProxy extends CommonProxy {
+	private SpellCaster spellCaster = new SpellCaster();
+	
+	@Override
+	public void preInit(FMLPreInitializationEvent e) {
+		super.preInit(e);
+		FMLCommonHandler.instance().bus().register(new KeyInputHandler());
+	}
+
+	@Override
+	public void init(FMLInitializationEvent e) {
+		super.init(e);
+		KeyBindings.init();
+		ItemRenderRegister.registerItemRenderer();
+		BlockRenderRegister.registerBlockRenderer();
+	}
+
+	@Override
+	public void postInit(FMLPostInitializationEvent e) {
+		super.postInit(e);
+	}
+	
+	public void castSymbol(SpellSymbol symbol) {
+		spellCaster.addSymbol(symbol);
+	}
+	
+	public void clearSymbols() {
+		
+	}
+}

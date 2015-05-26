@@ -1,0 +1,6 @@
+{
+    "parent":"battlemage:item/standard_item",
+    "textures": {
+        "layer0":"battlemage:items/woahter_item"
+    }
+}

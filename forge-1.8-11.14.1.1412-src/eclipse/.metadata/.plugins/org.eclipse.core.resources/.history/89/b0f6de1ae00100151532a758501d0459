@@ -1,0 +1,43 @@
+package purebe.battlemage.magic;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
+import purebe.battlemage.algorithms.Vectors;
+
+public class Illuminate implements ISpell {
+	final static int MAX_SIZE = 65535;
+	
+	EntityPlayer player;
+	int          intensity;
+	
+	public Illuminate(EntityPlayer player) {
+		this.player = player;
+		this.intensity = 1;
+	}
+
+	@Override
+	public void cast() {
+		System.out.println("You cast Illuminate!");
+		
+		int count = 0;
+		Queue<BlockPos> storage = new LinkedList<BlockPos>();
+		storage.add(player.getPosition());
+		BlockPos checkPos = null;
+		
+		while (!storage.isEmpty()) {
+			if (count >= MAX_SIZE) {
+				break;
+			}
+			checkPos = storage.remove();
+			if (player.worldObj.getBlockState(checkPos).getBlock() == Blocks.air) {
+				++count;
+				player.worldObj.setBlockTo(checkPos);
+				Vectors.EnqueueDirections(storage, checkPos);
+			}
+		}
+	}
+}

@@ -1,0 +1,29 @@
+package purebe.battlemage.magic;
+
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.passive.EntityCow;
+import net.minecraft.entity.player.EntityPlayer;
+
+public class ArtilleryCattle implements ISpell {
+	EntityPlayer player;
+	EntityCow    babyCow;
+	int          intensity;
+	
+	public ArtilleryCattle(EntityPlayer player) {
+		this.player = player;
+		this.intensity = 1;
+	}
+	
+	@Override
+	public void cast() {
+		System.out.println("You cast Artillery Cattle!");
+		
+		//EntityMooshroom babyMooshroom = new EntityMooshroom(this.worldObj);
+		//babyMooshroom.setGrowingAge(-24000);
+		//babyMooshroom.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, 0.0F);
+		//this.worldObj.spawnEntityInWorld(babyMooshroom);
+		
+		babyCow = new EntityCow();
+		player.worldObj.spawnEntityInWorld();
+	}
+}
