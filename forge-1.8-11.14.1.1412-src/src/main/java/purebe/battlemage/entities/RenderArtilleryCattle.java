@@ -23,81 +23,83 @@ public class RenderArtilleryCattle extends RenderLiving {
     {
     	switch (entity.ticksExisted) {
     	case 35:
-    		GL11.glScalef(1.25f, 1.25f, 1.25f);
+    		GL11.glScalef(1.15f, 1.15f, 1.15f);
     		break;
     	case 36:
-    		GL11.glScalef(1.5f, 1.5f, 1.5f);
+    		GL11.glScalef(1.25f, 1.25f, 1.25f);
     		break;
     	case 37:
-    		GL11.glScalef(1.25f, 1.25f, 1.25f);
+    		GL11.glScalef(1.15f, 1.15f, 1.15f);
     		break;
     	case 38:
     		//GL11.glScalef(1f, 1f, 1f);
     		break;
     	case 39:
-    		GL11.glScalef(1.25f, 1.25f, 1.25f);
+    		GL11.glScalef(1.15f, 1.15f, 1.15f);
     		break;
     	case 40:
-    		GL11.glScalef(1.5f, 1.5f, 1.5f);
+    		GL11.glScalef(1.25f, 1.25f, 1.25f);
     		break;
     	case 41:
-    		GL11.glScalef(1.25f, 1.25f, 1.25f);
+    		GL11.glScalef(1.15f, 1.15f, 1.15f);
     		break;
     	case 42:
     		//GL11.glScalef(1f, 1f, 1f);
     		break;
     	case 43:
-    		GL11.glScalef(1.25f, 1.25f, 1.25f);
+    		GL11.glScalef(1.15f, 1.15f, 1.15f);
     		break;
     	case 44:
-    		GL11.glScalef(1.5f, 1.5f, 1.5f);
+    		GL11.glScalef(1.25f, 1.25f, 1.25f);
     		break;
     	case 45:
-    		GL11.glScalef(1.25f, 1.25f, 1.25f);
+    		GL11.glScalef(1.15f, 1.15f, 1.15f);
     		break;
     	case 46:
     		//GL11.glScalef(1f, 1f, 1f);
     		break;
     	case 47:
-    		GL11.glScalef(1.25f, 1.25f, 1.25f);
+    		GL11.glScalef(1.15f, 1.15f, 1.15f);
     		break;
     	case 48:
-    		GL11.glScalef(1.5f, 1.5f, 1.5f);
+    		GL11.glScalef(1.25f, 1.25f, 1.25f);
     		break;
     	case 49:
-    		GL11.glScalef(1.25f, 1.25f, 1.25f);
+    		GL11.glScalef(1.15f, 1.15f, 1.15f);
     		break;
     	case 50:
     		//GL11.glScalef(1f, 1f, 1f);
     		break;
     	case 51:
-    		GL11.glScalef(1.25f, 1.25f, 1.25f);
+    		GL11.glScalef(1.15f, 1.15f, 1.15f);
     		break;
     	case 52:
-    		GL11.glScalef(1.5f, 1.5f, 1.5f);
-    		break;
-    	case 53:
-    		GL11.glScalef(1.75f, 1.75f, 1.75f);
-    		break;
-    	case 54:
-    		GL11.glScalef(1.5f, 1.5f, 1.5f);
-    		break;
-    	case 55:
     		GL11.glScalef(1.25f, 1.25f, 1.25f);
     		break;
+    	case 53:
+    		GL11.glScalef(1.35f, 1.35f, 1.35f);
+    		break;
+    	case 54:
+    		GL11.glScalef(1.25f, 1.25f, 1.25f);
+    		break;
+    	case 55:
+    		GL11.glScalef(1.15f, 1.15f, 1.15f);
+    		break;
     	case 56:
-    		GL11.glScalef(1.5f, 1.5f, 1.5f);
+    		GL11.glScalef(1.25f, 1.25f, 1.25f);
     		break;
     	case 57:
-    		GL11.glScalef(1.75f, 1.75f, 1.75f);
+    		GL11.glScalef(1.35f, 1.35f, 1.35f);
     		break;
     	case 58:
-    		GL11.glScalef(1.5f, 1.5f, 1.5f);
+    		GL11.glScalef(1.25f, 1.25f, 1.25f);
     		break;
     	case 59:
-    		GL11.glScalef(1.5f, 1.5f, 1.5f);
+    		GL11.glScalef(1.25f, 1.25f, 1.25f);
     		break;
     	case 60:
+    		GL11.glScalef(1.35f, 1.35f, 1.35f);
+    		break;
     	case 61:
     	case 62:
     	case 63:
@@ -108,7 +110,7 @@ public class RenderArtilleryCattle extends RenderLiving {
     	case 68:
     	case 69:
     	case 70:
-    		GL11.glScalef(1.75f, 1.75f, 1.75f);
+    		GL11.glScalef(1.45f, 1.45f, 1.45f);
     		break;
     	}
     }

@@ -1,0 +1,34 @@
+package purebe.battlemage.magic;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.Vec3;
+
+public class MagicalWallSpell implements ISpell {
+	final EntityPlayer     player;
+	final Vec3             playerLookat;
+	final int              intensity;
+
+	public MagicalWallSpell(EntityPlayer player, Vec3 playerLookat) {
+		this.player = player;
+		this.playerLookat = playerLookat;
+		this.intensity = 1;
+	}
+	
+	@Override
+	public void cast() {
+		Vec3 wallPosition = new Vec3(player.posX + playerLookat.xCoord,
+                player.posY,
+                player.posZ + playerLookat.zCoord);
+		
+		Vec3 facingDirection = wallPosition.subtract(player.getPositionVector());
+		Vec3 wallDirection = new Vec3(-wallPosition.xCoord, wallPosition.yCoord, -wallPosition.zCoord);
+		
+		BlockPos wallPos = new BlockPos(wallDirection);
+		for (int i = 0; i < 3; ++i) {
+			for (int k = -1; k < 2; ++k) {
+				player.worldObj.getBlockState(pos)
+			}
+		}
+	}
+}

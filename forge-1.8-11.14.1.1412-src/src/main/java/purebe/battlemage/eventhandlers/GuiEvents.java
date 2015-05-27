@@ -121,6 +121,9 @@ public class GuiEvents {
 		case Teleport:
 			GlStateManager.color(0.81f, 0.56f, 0.94f, alpha);
 			break;
+		case MagicalWall:
+			GlStateManager.color(0.54f, 0.95f, 0.76f, alpha);
+			break;
 		default:
 			break;
 		}

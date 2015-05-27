@@ -1,0 +1,44 @@
+package purebe.battlemage.magic;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.Vec3;
+import purebe.battlemage.blocks.BattleMageBlocks;
+
+public class MagicalWallSpell implements ISpell {
+	final EntityPlayer     player;
+	final Vec3             playerLookat;
+	final int              intensity;
+
+	public MagicalWallSpell(EntityPlayer player, Vec3 playerLookat) {
+		this.player = player;
+		this.playerLookat = playerLookat;
+		this.intensity = 1;
+	}
+	
+	@Override
+	public void cast() {
+		// This won't work properly if the player is looking up or down at extreme angles
+		// such that there is less than 0.5 in x and z
+		Vec3 wallPosition = new Vec3(player.posX + playerLookat.xCoord * 2,
+                player.posY,
+                player.posZ + playerLookat.zCoord * 2);
+		
+		Vec3 facingDirection = wallPosition.subtract(player.getPositionVector());
+		facingDirection = facingDirection.normalize();
+		System.out.println("facingDirection: " + facingDirection);
+		Vec3 wallDirection = new Vec3(-facingDirection.xCoord, facingDirection.yCoord, facingDirection.zCoord);
+		System.out.println("wallDirection: " + wallDirection);
+		
+		BlockPos wallPos = new BlockPos(wallPosition);
+		for (int i = 0; i < 3; ++i) {
+			for (int k = -2; k < 3; ++k) {
+				System.out.println(wallPos.add(k * wallDirection.xCoord, i , k * wallDirection.zCoord));
+				if (player.worldObj.getBlockState(wallPos.add(k * wallDirection.xCoord, i, k * wallDirection.zCoord)) == Blocks.air.getDefaultState()) {
+					player.worldObj.setBlockState(wallPos.add(k * wallDirection.xCoord, i, k * wallDirection.zCoord), BattleMageBlocks.magicalWallBlock.getDefaultState());
+				}
+			}
+		}
+	}
+}

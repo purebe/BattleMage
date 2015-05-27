@@ -5,11 +5,12 @@ import net.minecraft.util.Vec3;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
-import purebe.battlemage.magic.ArtilleryCattle;
+import purebe.battlemage.magic.ArtilleryCattleSpell;
 import purebe.battlemage.magic.ISpell;
-import purebe.battlemage.magic.Illuminate;
+import purebe.battlemage.magic.IlluminateSpell;
+import purebe.battlemage.magic.MagicalWallSpell;
 import purebe.battlemage.magic.Spells.Spell;
-import purebe.battlemage.magic.Teleport;
+import purebe.battlemage.magic.TeleportSpell;
 
 public class CastSpellMsg implements IMessage {
 	Spell spell;
@@ -48,13 +49,16 @@ public class CastSpellMsg implements IMessage {
 					ISpell spell = null;
 					switch (finalMsg.spell) {
 					case Illuminate:
-						spell = new Illuminate(finalContext.getServerHandler().playerEntity);
+						spell = new IlluminateSpell(finalContext.getServerHandler().playerEntity);
 						break;
 					case ArtilleryCattle:
-						spell = new ArtilleryCattle(finalContext.getServerHandler().playerEntity, finalMsg.playerLookat);
+						spell = new ArtilleryCattleSpell(finalContext.getServerHandler().playerEntity, finalMsg.playerLookat);
 						break;
 					case Teleport:
-						spell = new Teleport(finalContext.getServerHandler().playerEntity, finalMsg.playerLookat);
+						spell = new TeleportSpell(finalContext.getServerHandler().playerEntity, finalMsg.playerLookat);
+						break;
+					case MagicalWall:
+						spell = new MagicalWallSpell(finalContext.getServerHandler().playerEntity, finalMsg.playerLookat);
 						break;
 					default:
 						break;

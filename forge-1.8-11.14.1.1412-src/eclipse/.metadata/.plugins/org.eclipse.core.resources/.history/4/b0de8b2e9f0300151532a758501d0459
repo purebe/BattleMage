@@ -1,0 +1,7 @@
+package purebe.battlemage.magic;
+
+public class MagicalWallSpell implements ISpell {
+	@Override
+	public void cast() {
+	}
+}

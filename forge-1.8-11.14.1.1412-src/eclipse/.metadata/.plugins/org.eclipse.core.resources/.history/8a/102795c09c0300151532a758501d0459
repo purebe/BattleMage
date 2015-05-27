@@ -1,0 +1,11 @@
+package purebe.battlemage.magic;
+
+public class MagicalWallSpell implements ISpell {
+
+	@Override
+	public void cast() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

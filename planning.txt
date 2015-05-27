@@ -16,6 +16,8 @@ Systems:
 	NAME                                STATUS                                        	NOTES
 	Incantation System                	IMPLEMENTED                                     The symbol animations need to be polished.  The global cool downs need to be balanced
                                                                                         (and it needs to have some on screen representation.)  Hotkeys might need to be remapped.
+                                                                                        Strongly consider caching symbols when they are cast but ignored due to global cool down,
+                                                                                        then when the global cool down is up automatically load them into the current incantation.
 	Spell Cool Downs                	PLANNING STAGE                                	Each spell should have it's own cool down.  This needs to be displayed on screen in the
                                                                                         form of spell icons with a clock-wipe (and probably a scale/fade out).
 	Cast Feedback                       PLANNING STAGE                                	Maybe put the cast messages directly in the chat box?  Probably.
@@ -39,8 +41,10 @@ Systems:
 	Mod Wiki                        	PLANNING STAGE                                	Needs to be done.  Will have a list of all the spells, their runes, mana cost, short
                                                                                         description.  Same for basically everything else in the mod too.
 	Git Repo                        	FINISHED                                        
-	Sound System                        PLANNING STAGE                                	Sounds are needed to emphasis when a spell is successfully cast or fizzles out.  Probably
-                                                                                        for flavour in other areas too but use sparingly.
+	Sound System                        PLANNING STAGE                                	Sounds are needed to emphasize when a spell is successfully cast or fizzles out.  Probably
+                                                                                        for flavour in other areas too but use sparingly.  Possibly to indicate when you can start
+                                                                                        casting again, either by playing a sound when the CD is up or playing an error sound when
+                                                                                        you try to cast a rune but can't due to CD.
 	
 Spells:
 
@@ -49,8 +53,14 @@ Spells:
                                                                                         solution is to make it anti-air, where the explosion strength is really low close to
                                                                                         the ground, but increases as it gets higher up in the sky.  It would be very hard to
                                                                                         hit air units but it would do a lot of damage, so maybe balanced.
-	Chaos Gust                        	PLLANNING                                       Sends a 360-degree gust of air outward from the player, knocking entities back and
+	Chaos Gust                        	PLANNING                                        Sends a 360-degree gust of air outward from the player, knocking entities back and
                                                                                         dealing a marginal amount of damage.
+    Fly                                 PLANNING                                        This spell probably requires the most balancing of all.  If it is overpowered it will ruin
+                                                                                        the feel of the game.  Current two options that seem reasonable are either low duration with
+                                                                                        a long cool down (ie: 10-15 second duration, 30-45 second cool down.)  Or, possibly a long
+                                                                                        duration with an absurd cool down (ie: 45-60 second duration, 3-5 minute cool down.)
+                                                                                        Possibly require feathers or something for either the incantation to work or maybe for an
+                                                                                        extended flight duration...?  Lots to think about here.
 	Illuminate                        	IMPLEMENTED                                     Needs work on the algorithm to achieve spreading the lights out a bit better (as to
                                                                                         reduce the # of lights required for a good effect.)  Less lights = less lag.
                                                                                         The proper implementation is probably to determine the ceilings/floor/walls and place
@@ -62,7 +72,7 @@ Spells:
                                                                                         back towards your position + the MIN distance.  Ray casts along your original Y plane, and
                                                                                         then along your Y plane + 1, then -1, then +2, then -2.  Fizzles out if there is no
                                                                                         suitable location to teleport to.
-	Wall                                PLANNING                                        Constructs a temporary glass wall 3x1 (bigger with higher intensity) in front and
+	Wall                                IMPLEMENTED                                     Constructs a temporary glass wall 3x1 (bigger with higher intensity) in front and
                                                                                         perpendicular to the player.  It disintegrates over time, piece by piece.
 
 

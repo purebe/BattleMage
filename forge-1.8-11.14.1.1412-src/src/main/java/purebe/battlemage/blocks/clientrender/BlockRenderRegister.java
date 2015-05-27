@@ -11,6 +11,7 @@ import purebe.battlemage.main.Main;
 public final class BlockRenderRegister {
 	public static void registerBlockRenderer() {
 		registerBlock(BattleMageBlocks.illuminatedAir);
+		registerBlock(BattleMageBlocks.magicalWallBlock);
 	}
 	
 	public static void registerBlock(Block block) {
