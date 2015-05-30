@@ -18,7 +18,7 @@ Systems:
                                                                                         (and it needs to have some on screen representation.)  Hotkeys might need to be remapped.
                                                                                         Strongly consider caching symbols when they are cast but ignored due to global cool down,
                                                                                         then when the global cool down is up automatically load them into the current incantation.
-    Spell Cool Downs                	PLANNING STAGE                                	Each spell should have it's own cool down.  This needs to be displayed on screen in the
+    Spell Cool Downs                	IMPLEMENTED                                	    Each spell should have it's own cool down.  This needs to be displayed on screen in the
                                                                                         form of spell icons with a clock-wipe (and probably a scale/fade out).
     Cast Feedback                       PLANNING STAGE                                	Maybe put the cast messages directly in the chat box?  Probably.
     Wands and Armor                     PLANNING STAGE                                  School specific buffs for wearing a full set (ie, full black magi robes gives you special
@@ -92,8 +92,8 @@ Spells:
                                                                                         visible.)  Maybe make all the lights disappear at the same time for lag reasons too.
     Invulnerability                     PLANNING                                        The casting player becomes immune to all sources of damage for a very short duration (3-5
                                                                                         seconds.)  Has a long cool down (~5 minutes.)
-	Regenerate                          PLANNING                                        Slowly heals the casting player over x duration for y hearts.
-	Teleport                        	IMPLEMENTED                                     A short-ranged teleport that can go through walls.  Works by detecting if you are standing
+    Regenerate                          PLANNING                                        Slowly heals the casting player over x duration for y hearts.
+    Teleport                            IMPLEMENTED                                     A short-ranged teleport that can go through walls.  Works by detecting if you are standing
                                                                                         next to a wall, and teleporting trying to teleport you through the wall if you are.  If
                                                                                         you are not next to a wall, it will try to teleport you the MAX distance and work its way
                                                                                         back towards your position + the MIN distance.  Ray casts along your original Y plane, and
