@@ -20,8 +20,10 @@ import purebe.battlemage.main.Main;
 public class GuiEvents {
 	private int cooldownIcons = 0;
 	private int cooldownsDrawn = 0;
-	private final float[] squareCoordsX = { 1f, 1f, 1f, 1f, 0.5f, 0f, -0.5f, -1f, -1f, -1f, -1f, -1f, -0.5f, 0f, 0.5f, 1f, 1f, 1f };
-	private final float[] squareCoordsY = { 0.5f, 0f, -0.5f, -1f, -1f, -1f, -1f, -1f, -0.5f, 0f, 0.5f, 1f, 1f, 1f, 1f, 1f, 0.5f, 0f };
+	//private final float[] squareCoordsX = { 1f, 1f, 1f, 1f, 0.5f, 0f, -0.5f, -1f, -1f, -1f, -1f, -1f, -0.5f, 0f, 0.5f, 1f, 1f, 1f };
+	//private final float[] squareCoordsY = { 0.5f, 0f, -0.5f, -1f, -1f, -1f, -1f, -1f, -0.5f, 0f, 0.5f, 1f, 1f, 1f, 1f, 1f, 0.5f, 0f };
+	private final float[] squareCoordsX = { 0f, -0.5f, -1f, -1f, -1f, -1f, -1f, -0.5f, 0f, 0.5f, 1f, 1f, 1f, 1f, 1f, 0.5f, 0f };
+	private final float[] squareCoordsY = { -1f, -1f, -1f, -0.5f, 0f, 0.5f, 1f, 1f, 1f, 1f, 1f, 0.5f, 0f, -0.5f, -1f, -1f, -1f };
 
 	@SubscribeEvent
 	public void RenderGameOverlayEvent(RenderGameOverlayEvent event) {
@@ -162,7 +164,7 @@ public class GuiEvents {
 		int width = 16;
 		int height = 16;
 		
-		GlStateManager.color(1f, 1f, 1f, 0.5f);
+		GlStateManager.color(1f, 1f, 1f, 0.9f);
 		Minecraft.getMinecraft().renderEngine.bindTexture(icon);
 		
 		worldRenderer.startDrawingQuads();
@@ -173,7 +175,7 @@ public class GuiEvents {
 		tessellator.draw();
 		
 		GlStateManager.color(0f, 0f, 0f, 0.5f);
-		GL11.glBegin(GL11.GL_TRIANGLE_STRIP);
+		GL11.glBegin(GL11.GL_TRIANGLE_FAN);
 		//for (float i = (float)(Math.PI * 2) * (1 - (float)ticksLeft / ticksStart); i > 0; i -= Math.PI / 4) {
 		//	GL11.glVertex2f(centerX + (width / 2.0f), centerY + (height / 2.0f));
 		//	GL11.glVertex2f((float)((width / 2.0f) + centerX + ((width / 2.0f) * Math.cos(i))), (float)((height / 2.0f) + centerY + (height / 2.0f) * Math.sin(i)));
@@ -181,12 +183,12 @@ public class GuiEvents {
 		
 		float vertexCenterX = centerX + (width / 2.0f);
 		float vertexCenterY = centerY + (height / 2.0f);
-		int skipper = Math.round(squareCoordsX.length * (1 - (float)ticksLeft / ticksStart));
-		for (int i = squareCoordsX.length - skipper - 1; i > 0; --i) {
+		int skipper = Math.round((squareCoordsX.length - 1) * ((1 - (float)ticksLeft / ticksStart)));
+		GL11.glVertex2f(vertexCenterX, vertexCenterY);
+		GL11.glVertex2f(vertexCenterX + ((width / 2.0f) * squareCoordsX[0]), vertexCenterY + ((height / 2.0f) * squareCoordsY[0]));
+		for (int i = 1; i < squareCoordsX.length - skipper; ++i) {
 			GL11.glVertex2f(vertexCenterX + ((width / 2.0f) * squareCoordsX[i]), vertexCenterY + ((height / 2.0f) * squareCoordsY[i]));
-			GL11.glVertex2f(vertexCenterX, vertexCenterY);
 		}
-		
 		GL11.glEnd();
 	}
 }
