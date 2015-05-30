@@ -1,0 +1,6 @@
+package purebe.battlemage.magic;
+
+
+public abstract class ISpell {
+	abstract void cast();
+}

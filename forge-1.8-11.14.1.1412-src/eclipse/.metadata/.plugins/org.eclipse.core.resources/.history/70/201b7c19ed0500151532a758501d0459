@@ -1,0 +1,17 @@
+package purebe.battlemage.magic;
+
+import java.util.List;
+
+import purebe.battlemage.magic.SpellCaster.SpellName;
+import purebe.battlemage.magic.SpellCaster.SpellSymbol;
+
+public abstract class Spell {
+	public abstract void cast();
+	public abstract int getCooldown();
+	public abstract List<SpellSymbol> getIncantation();
+	public abstract SpellName getName();
+	protected int cdTick = 0;
+	public int getCoolDownTick() {
+		return cdTick;
+	}
+}

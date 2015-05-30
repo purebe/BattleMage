@@ -1,0 +1,23 @@
+package purebe.battlemage.magic;
+
+
+public final class Spells {
+	/*
+		
+		public static List<SpellSymbol> getIncantation(Spell spell) {
+			switch (spell) {
+			case Illuminate:
+				return Arrays.asList(SpellSymbol.White, SpellSymbol.Nature, SpellSymbol.Chaos);
+			case ArtilleryCattle:
+				return Arrays.asList(SpellSymbol.White, SpellSymbol.Black, SpellSymbol.Chaos, SpellSymbol.Nature, SpellSymbol.Power);
+			case Teleport:
+				return Arrays.asList(SpellSymbol.Chaos, SpellSymbol.White, SpellSymbol.Chaos, SpellSymbol.White, SpellSymbol.Chaos);
+			case MagicalWall:
+				return Arrays.asList(SpellSymbol.White, SpellSymbol.Nature, SpellSymbol.White, SpellSymbol.Nature, SpellSymbol.Power);
+			default:
+				break;
+			}
+			return null;
+		}
+	}*/
+}

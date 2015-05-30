@@ -1,15 +1,26 @@
 package purebe.battlemage.magic;
 
+import java.util.Arrays;
+import java.util.List;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Vec3;
 import purebe.battlemage.blocks.BattleMageBlocks;
+import purebe.battlemage.magic.SpellCaster.SpellName;
+import purebe.battlemage.magic.SpellCaster.SpellSymbol;
 
-public class MagicalWallSpell implements ISpell {
+public class MagicalWallSpell extends Spell {
 	final EntityPlayer     player;
 	final Vec3             playerLookat;
-	final int              intensity;
+	
+	public MagicalWallSpell(ResourceLocation icon) {
+		player = null;
+		playerLookat = null;
+		this.icon = icon;
+	}
 
 	public MagicalWallSpell(EntityPlayer player, Vec3 playerLookat) {
 		this.player = player;
@@ -44,5 +55,15 @@ public class MagicalWallSpell implements ISpell {
 				}
 			}
 		}
+	}
+
+	@Override
+	public List<SpellSymbol> getIncantation() {
+		return Arrays.asList(SpellSymbol.White, SpellSymbol.Nature, SpellSymbol.White, SpellSymbol.Nature, SpellSymbol.Power);
+	}
+
+	@Override
+	public SpellName getName() {
+		return SpellName.MagicalWall;
 	}
 }

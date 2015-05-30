@@ -1,16 +1,29 @@
 package purebe.battlemage.magic;
 
+import java.util.Arrays;
+import java.util.List;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Vec3;
+import purebe.battlemage.magic.SpellCaster.SpellName;
+import purebe.battlemage.magic.SpellCaster.SpellSymbol;
 
-public class TeleportSpell implements ISpell {
+public class TeleportSpell extends Spell {
 	final EntityPlayer     player;
 	final Vec3             playerLookat;
-	final int              intensity;
 	final int              max_distance;
 	final int              min_distance;
 	final int[]            checkPattern = { 0, 1, -1, 2, -2 };
+	
+	public TeleportSpell(ResourceLocation icon) {
+		player = null;
+		playerLookat = null;
+		max_distance = 0;
+		min_distance = 0;
+		this.icon = icon;
+	}
 
 	public TeleportSpell(EntityPlayer player, Vec3 playerLookat) {
 		this.player = player;
@@ -82,5 +95,15 @@ public class TeleportSpell implements ISpell {
 			}
 		}
 		return false;
+	}
+
+	@Override
+	public List<SpellSymbol> getIncantation() {
+		return Arrays.asList(SpellSymbol.Chaos, SpellSymbol.White, SpellSymbol.Chaos, SpellSymbol.White, SpellSymbol.Chaos);
+	}
+	
+	@Override
+	public SpellName getName() {
+		return SpellName.Teleport;
 	}
 }

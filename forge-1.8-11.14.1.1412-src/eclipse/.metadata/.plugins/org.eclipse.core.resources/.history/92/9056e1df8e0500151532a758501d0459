@@ -1,0 +1,8 @@
+package purebe.battlemage.magic;
+
+
+
+public abstract class Spell {
+	static SpellInfo Name = SpellInfo.None;
+	public abstract void cast();
+}

@@ -11,12 +11,18 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import org.lwjgl.opengl.GL11;
 
+import purebe.battlemage.magic.Spell;
+import purebe.battlemage.magic.SpellCaster.SpellName;
 import purebe.battlemage.magic.SpellCaster.SpellSymbol;
-import purebe.battlemage.magic.Spells.Spell;
 import purebe.battlemage.main.ClientProxy;
 import purebe.battlemage.main.Main;
 
 public class GuiEvents {
+	private int cooldownIcons = 0;
+	private int cooldownsDrawn = 0;
+	private final float[] squareCoordsX = { 1f, 1f, 1f, 1f, 0.5f, 0f, -0.5f, -1f, -1f, -1f, -1f, -1f, -0.5f, 0f, 0.5f, 1f, 1f, 1f };
+	private final float[] squareCoordsY = { 0.5f, 0f, -0.5f, -1f, -1f, -1f, -1f, -1f, -0.5f, 0f, 0.5f, 1f, 1f, 1f, 1f, 1f, 0.5f, 0f };
+
 	@SubscribeEvent
 	public void RenderGameOverlayEvent(RenderGameOverlayEvent event) {
 		if(event.isCancelable() || event.type != ElementType.EXPERIENCE)
@@ -29,6 +35,19 @@ public class GuiEvents {
 		
 		GlStateManager.enableBlend();
 		GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+		
+		cooldownIcons = 0;
+		int ticks = 0;
+		for (Spell spell : ((ClientProxy)Main.proxy).spellCaster.spellRegistry) {
+			ticks = spell.getCoolDownTick();
+			if (ticks > 0) {
+				++cooldownIcons;
+				
+				DrawIcon(ticks, spell.getCoolDownDuration(), spell.getIcon(),
+				         event.resolution.getScaledWidth(), event.resolution.getScaledHeight(),
+				         tessellator, worldrenderer);
+			}
+		}
 		
 		if (((ClientProxy)Main.proxy).spellCaster.cooldown) {
 			double height = 48;
@@ -97,7 +116,7 @@ public class GuiEvents {
 	}
 	
 	private void DrawAura(int ticksAlive, double posX, double posY, double width, double height,
-	                      Tessellator tessellator, WorldRenderer worldRenderer, int maxTicks, Spell spell) {
+	                      Tessellator tessellator, WorldRenderer worldRenderer, int maxTicks, SpellName spell) {
 		Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation("battlemage:textures/gui/spell_cast_aura.png"));
 		
 		float alpha = ticksAlive / 10f;
@@ -134,5 +153,40 @@ public class GuiEvents {
 		worldRenderer.addVertexWithUV(posX + width, posY, 0, 1, 0);
 		worldRenderer.addVertexWithUV(posX, posY, 0, 0, 0);
 		tessellator.draw();
+	}
+	
+	private void DrawIcon(int ticksLeft, int ticksStart, ResourceLocation icon, int screenWidth, int screenHeight,
+		                  Tessellator tessellator, WorldRenderer worldRenderer) {
+		float centerX = screenWidth / 2.0f + screenWidth / 4.0f - 8;
+		float centerY = (screenHeight / 2.0f - 8) - cooldownIcons * 20 - (cooldownsDrawn * 20);
+		int width = 16;
+		int height = 16;
+		
+		GlStateManager.color(1f, 1f, 1f, 0.5f);
+		Minecraft.getMinecraft().renderEngine.bindTexture(icon);
+		
+		worldRenderer.startDrawingQuads();
+		worldRenderer.addVertexWithUV(centerX, centerY + height, 0, 0, 1);
+		worldRenderer.addVertexWithUV(centerX + width, centerY + height, 0, 1, 1);
+		worldRenderer.addVertexWithUV(centerX + width, centerY, 0, 1, 0);
+		worldRenderer.addVertexWithUV(centerX, centerY, 0, 0, 0);
+		tessellator.draw();
+		
+		GlStateManager.color(0f, 0f, 0f, 0.5f);
+		GL11.glBegin(GL11.GL_TRIANGLE_STRIP);
+		//for (float i = (float)(Math.PI * 2) * (1 - (float)ticksLeft / ticksStart); i > 0; i -= Math.PI / 4) {
+		//	GL11.glVertex2f(centerX + (width / 2.0f), centerY + (height / 2.0f));
+		//	GL11.glVertex2f((float)((width / 2.0f) + centerX + ((width / 2.0f) * Math.cos(i))), (float)((height / 2.0f) + centerY + (height / 2.0f) * Math.sin(i)));
+		//}
+		
+		float vertexCenterX = centerX + (width / 2.0f);
+		float vertexCenterY = centerY + (height / 2.0f);
+		int skipper = Math.round(squareCoordsX.length * (1 - (float)ticksLeft / ticksStart));
+		for (int i = squareCoordsX.length - skipper - 1; i > 0; --i) {
+			GL11.glVertex2f(vertexCenterX + ((width / 2.0f) * squareCoordsX[i]), vertexCenterY + ((height / 2.0f) * squareCoordsY[i]));
+			GL11.glVertex2f(vertexCenterX, vertexCenterY);
+		}
+		
+		GL11.glEnd();
 	}
 }

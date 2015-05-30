@@ -1,19 +1,28 @@
 package purebe.battlemage.magic;
 
+import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.ResourceLocation;
 import purebe.battlemage.algorithms.Vectors;
 import purebe.battlemage.blocks.BattleMageBlocks;
+import purebe.battlemage.magic.SpellCaster.SpellName;
+import purebe.battlemage.magic.SpellCaster.SpellSymbol;
 
-public class IlluminateSpell implements ISpell {
+public class IlluminateSpell extends Spell {
 	final static int MAX_SIZE = 12;
 	
 	final EntityPlayer player;
-	final int          intensity;
+	
+	public IlluminateSpell(ResourceLocation icon) {
+		player = null;
+		this.icon = icon;
+	}
 	
 	public IlluminateSpell(EntityPlayer player) {
 		this.player = player;
@@ -43,5 +52,15 @@ public class IlluminateSpell implements ISpell {
 				Vectors.Enqueue2DDirections(storage, checkPos);
 			}
 		}
+	}
+
+	@Override
+	public List<SpellSymbol> getIncantation() {
+		return Arrays.asList(SpellSymbol.White, SpellSymbol.Nature, SpellSymbol.Chaos);
+	}
+
+	@Override
+	public SpellName getName() {
+		return SpellName.Illuminate;
 	}
 }

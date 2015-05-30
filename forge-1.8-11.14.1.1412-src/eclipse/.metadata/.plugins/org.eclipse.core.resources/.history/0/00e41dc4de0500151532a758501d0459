@@ -1,0 +1,9 @@
+package purebe.battlemage.magic;
+
+import purebe.battlemage.magic.SpellCaster.SpellName;
+
+public abstract class Spell {
+	public abstract void cast();
+	public abstract int getCooldown();
+	public abstract SpellName getName();
+}

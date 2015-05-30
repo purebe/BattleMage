@@ -1,27 +1,27 @@
-Symbols:	White, Black, Chaos, Nature, Power
-        	[F]    [B]    [C]    [V]     [G]
+Symbols:    White, Black, Chaos, Nature, Power
+            [F]    [B]    [C]    [V]     [G]
 
 Mission Statement:
-	Prevent the arms race.  Mages are NOT immortal.  They are very capable and powerful, but not OVERPOWERED.  Further, they should still fear death.
-	The player, even the most advanced mage, should not feel immortal.  There should be ample challenge.  Game play without challenge is BORING.
-	Minecraft poses a lot of challenges by default, this mod should make those challenges stand out and provide unique solutions, but not a panacea.
-	
-	Trade offs are key, donning a wand and a wizard suit should open you up to physical damage, but enhance your offensive and utility capabilities.
-	The player must make choices that are not obvious.  A black magi should be feared for his ability to cause untold destruction, but the brighter
-	the candle, the faster it burns.  White magi are the greatest of allies, but alone they do not stand.
+    Prevent the arms race.  Mages are NOT immortal.  They are very capable and powerful, but not OVERPOWERED.  Further, they should still fear death.
+    The player, even the most advanced mage, should not feel immortal.  There should be ample challenge.  Game play without challenge is BORING.
+    Minecraft poses a lot of challenges by default, this mod should make those challenges stand out and provide unique solutions, but not a panacea.
+    
+    Trade offs are key, donning a wand and a wizard suit should open you up to physical damage, but enhance your offensive and utility capabilities.
+    The player must make choices that are not obvious.  A black magi should be feared for his ability to cause untold destruction, but the brighter
+    the candle, the faster it burns.  White magi are the greatest of allies, but alone they do not stand.
         	
         	
 Systems:
 	
-	NAME                                STATUS                                        	NOTES
-	Incantation System                	IMPLEMENTED                                     The symbol animations need to be polished.  The global cool downs need to be balanced
+    NAME                                STATUS                                        	NOTES
+    Incantation System                	IMPLEMENTED                                     The symbol animations need to be polished.  The global cool downs need to be balanced
                                                                                         (and it needs to have some on screen representation.)  Hotkeys might need to be remapped.
                                                                                         Strongly consider caching symbols when they are cast but ignored due to global cool down,
                                                                                         then when the global cool down is up automatically load them into the current incantation.
-	Spell Cool Downs                	PLANNING STAGE                                	Each spell should have it's own cool down.  This needs to be displayed on screen in the
+    Spell Cool Downs                	PLANNING STAGE                                	Each spell should have it's own cool down.  This needs to be displayed on screen in the
                                                                                         form of spell icons with a clock-wipe (and probably a scale/fade out).
-	Cast Feedback                       PLANNING STAGE                                	Maybe put the cast messages directly in the chat box?  Probably.
-	Wands and Armor                     PLANNING STAGE                                  School specific buffs for wearing a full set (ie, full black magi robes gives you special
+    Cast Feedback                       PLANNING STAGE                                	Maybe put the cast messages directly in the chat box?  Probably.
+    Wands and Armor                     PLANNING STAGE                                  School specific buffs for wearing a full set (ie, full black magi robes gives you special
                                                                                         effects on black-magic spells.)  Each individual piece increases your mana pool.  Wearing
                                                                                         mix-and-match set pieces increases your spell intensity in each school you are wearing
                                                                                         roughly proportionately.
@@ -29,59 +29,91 @@ Systems:
                                                                                         powerful.
                                                                                         Wooden wand has set durability.  Each tier of wand above it comes with increasingly faster
                                                                                         self-repair, although the best self-repair should still be fairly slow.
-	Mana                                PLANNING STAGE                                	Needs to be planned out.
-	Places of Power                     PLANNING STAGE                                  Needs to be planned out.
-	Curse/debuff System                	PRE-PLANNING STAGE                              Needs to be decided if it will be included or not.
-	In-game Spell Browser               PLANNING STAGE                                	No idea how this should be done yet.  A book is the classic example but is not super 
+                                                                                        Possibly make it so wearing full magi robes limits the max tick of damage you can take per
+                                                                                        instance of damage to 1 heart, and then add a short 1s invulnerability timer between
+                                                                                        instances of damage.  Then could balance it a bit by making arrow shots deal 2 hearts worth
+                                                                                        and don't trigger the timer.  Melee weapons could also do extra damage and have a shorter
+                                                                                        timer as well.
+    Mana                                PLANNING STAGE                                	Needs to be planned out.
+    Places of Power                     PLANNING STAGE                                  Needs to be planned out.
+    Curse/debuff System                	PRE-PLANNING STAGE                              Needs to be decided if it will be included or not.
+    In-game Spell Browser               PLANNING STAGE                                	No idea how this should be done yet.  A book is the classic example but is not super 
                                                                                         user friendly.  It would be nice to have some kind of "mage training" or something to 
                                                                                         guide the player towards learning the spells as second nature.
-	Progression System                	PRE-PLANNING STAGE                              Not sure if this is needed, but it would keep the mod interesting for survival players.
+    Progression System                	PRE-PLANNING STAGE                              Not sure if this is needed, but it would keep the mod interesting for survival players.
                                                                                         On the other hand it would impede battle style play such as in "The Walls."  Coming up
                                                                                         with a system that satisfies both use cases would be really nice.
-	Mod Wiki                        	PLANNING STAGE                                	Needs to be done.  Will have a list of all the spells, their runes, mana cost, short
+                                                                                        Probably just need to scrap that idea and focus on a SMP-friendly system with a config
+                                                                                        option to disable it for PvP battle arena style play.
+                                                                                        Thinking about somehow having multiple tiers and you start by crafting a wooden wand, 
+                                                                                        and then you have the option to make either a basic White, Black, Chaos, or Nature
+                                                                                        wand.  Power doesn't act as a school of magic, but rather a utility rune.
+    Mod Wiki                        	PLANNING STAGE                                	Needs to be done.  Will have a list of all the spells, their runes, mana cost, short
                                                                                         description.  Same for basically everything else in the mod too.
-	Git Repo                        	FINISHED                                        
-	Sound System                        PLANNING STAGE                                	Sounds are needed to emphasize when a spell is successfully cast or fizzles out.  Probably
+    Git Repo                        	FINISHED                                        
+    Sound System                        PLANNING STAGE                                	Sounds are needed to emphasize when a spell is successfully cast or fizzles out.  Probably
                                                                                         for flavour in other areas too but use sparingly.  Possibly to indicate when you can start
                                                                                         casting again, either by playing a sound when the CD is up or playing an error sound when
                                                                                         you try to cast a rune but can't due to CD.
-	
+
 Spells:
 
-	NAME                                STATUS                                        	NOTES
-	Artillery Cattle                	IMPLEMENTED                                     Needs some balancing, the time-bomb portion is probably way too strong.  One possible
+    NAME                                STATUS                                        	NOTES
+    Artillery Cattle                	IMPLEMENTED                                     Needs some balancing, the time-bomb portion is probably way too strong.  One possible
                                                                                         solution is to make it anti-air, where the explosion strength is really low close to
                                                                                         the ground, but increases as it gets higher up in the sky.  It would be very hard to
-                                                                                        hit air units but it would do a lot of damage, so maybe balanced.
-	Chaos Gust                        	PLANNING                                        Sends a 360-degree gust of air outward from the player, knocking entities back and
+                                                                                        hit air units but it would do a lot of damage, so maybe balanced.  Almost certainly will 
+                                                                                        need to write a custom explosion so it doesn't insta-gib people if it lands perfectly.
+    Chaos Gust                        	PLANNING                                        Sends a 360-degree gust of air outward from the player, knocking entities back and
                                                                                         dealing a marginal amount of damage.
+    Choking Gas                         PLANNING                                        Summon a toxic cloud of gas that damages entities trapped inside of it.  Possibly slow the
+                                                                                        movement speed of affected entities as well.
+    Encase                              PLANNING                                        Constructs a temporary unbreakable glass cube around the player, replacing any block.
+                                                                                        Lasts for 5-10 seconds and then disintegrates over time, piece by piece.  As each piece
+                                                                                        disintegrates, it will spawn back the block it replaced.  Temporarily causes the caster to
+                                                                                        take no fall damage.
+    Escape                              PLANNING                                        Teleports the player to the furthest found portal.  Probably will have no effect outdoors.
+                                                                                        (Cast a ray to the ceiling and then find the walls that hit the ground to get the rooms
+                                                                                        basic shape, and then find all of the portals out of that shape, take the distance and
+                                                                                        teleport to the furthest one.)
+    Feral Companion                     PLANNING                                        Summon 2 tamed dogs for the player that have a timed life, and maybe some strength buffs.
+                                                                                        Cool down should probably be half the duration of the spell, and if player re-casts the
+                                                                                        spell then it should summon 2 new dogs and kill the current ones if they are still alive.
     Fly                                 PLANNING                                        This spell probably requires the most balancing of all.  If it is overpowered it will ruin
                                                                                         the feel of the game.  Current two options that seem reasonable are either low duration with
                                                                                         a long cool down (ie: 10-15 second duration, 30-45 second cool down.)  Or, possibly a long
                                                                                         duration with an absurd cool down (ie: 45-60 second duration, 3-5 minute cool down.)
                                                                                         Possibly require feathers or something for either the incantation to work or maybe for an
                                                                                         extended flight duration...?  Lots to think about here.
-	Illuminate                        	IMPLEMENTED                                     Needs work on the algorithm to achieve spreading the lights out a bit better (as to
+    Illuminate                        	IMPLEMENTED                                     Needs work on the algorithm to achieve spreading the lights out a bit better (as to
                                                                                         reduce the # of lights required for a good effect.)  Less lights = less lag.
                                                                                         The proper implementation is probably to determine the ceilings/floor/walls and place
                                                                                         lights sparsely along those (no point in having lights in the open where they aren't
                                                                                         visible.)  Maybe make all the lights disappear at the same time for lag reasons too.
+    Invulnerability                     PLANNING                                        The casting player becomes immune to all sources of damage for a very short duration (3-5
+                                                                                        seconds.)  Has a long cool down (~5 minutes.)
+	Regenerate                          PLANNING                                        Slowly heals the casting player over x duration for y hearts.
 	Teleport                        	IMPLEMENTED                                     A short-ranged teleport that can go through walls.  Works by detecting if you are standing
                                                                                         next to a wall, and teleporting trying to teleport you through the wall if you are.  If
                                                                                         you are not next to a wall, it will try to teleport you the MAX distance and work its way
                                                                                         back towards your position + the MIN distance.  Ray casts along your original Y plane, and
                                                                                         then along your Y plane + 1, then -1, then +2, then -2.  Fizzles out if there is no
                                                                                         suitable location to teleport to.
-	Wall                                IMPLEMENTED                                     Constructs a temporary glass wall 3x1 (bigger with higher intensity) in front and
-                                                                                        perpendicular to the player.  It disintegrates over time, piece by piece.
+    Wall                                IMPLEMENTED                                     Constructs a temporary glass wall 5x1 (bigger with higher intensity) in front and
+                                                                                        perpendicular to the player.  It disintegrates over time, piece by piece.  At some point make
+                                                                                        the wall always spawn in at a 45 degree angle for aesthetics.
 
 
 
 CREDITS:
 
-	General Mentions:
+    General Mentions:
         #minecraftforge @ esper.net IRC - general helpfulness and motivation
         diesieben07	- super knowledgeable and an invaluable help for figuring out some of the arcane bits of forge.
 
-	Spells:
+    Spells:
         Artillery Cattle: ThePsionic, Zaggy1024 - came up with the idea.
+		
+    Progression System:
+        Aesen, lastrano - came up with and expanded on the super clever idea of having a set of puzzles tailored to your current spell set you must pass before moving on
+                          to the next tier of your school.

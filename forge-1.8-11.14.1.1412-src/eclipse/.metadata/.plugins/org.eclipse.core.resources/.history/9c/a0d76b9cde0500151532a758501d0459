@@ -1,0 +1,10 @@
+package purebe.battlemage.magic;
+
+
+
+
+public abstract class Spell {
+	public abstract void cast();
+	public abstract int getCooldown();
+	public abstract SpellName getName();
+}

@@ -1,0 +1,7 @@
+package purebe.battlemage.magic;
+
+
+public abstract class Spell {
+	public abstract static List<SpellSymbol> getIncantation();
+	abstract void cast();
+}
