@@ -14,7 +14,7 @@ public class SpellCaster {
 	}
 	
 	public enum SpellName {
-		None, Cancel, Illuminate, ArtilleryCattle, Teleport, MagicalWall;
+		None, Cancel, Illuminate, ArtilleryCattle, Teleport, MagicalWall, Gust;
 	}
 	
 	public final int MAX_SYMBOLS = 5;
@@ -35,6 +35,7 @@ public class SpellCaster {
 		registerSpell(new ArtilleryCattleSpell(new ResourceLocation("battlemage:textures/gui/artillerycattle_icon.png")));
 		registerSpell(new TeleportSpell(new ResourceLocation("battlemage:textures/gui/teleport_icon.png")));
 		registerSpell(new MagicalWallSpell(new ResourceLocation("battlemage:textures/gui/magicalwall_icon.png")));
+		registerSpell(new GustSpell(new ResourceLocation("battlemage:textures/gui/gust_icon.png")));
 	}
 	
 	public void registerSpell(Spell spell) {

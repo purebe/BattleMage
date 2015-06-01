@@ -20,20 +20,7 @@ Systems:
                                                                                         then when the global cool down is up automatically load them into the current incantation.
     Spell Cool Downs                	IMPLEMENTED                                	    Each spell should have it's own cool down.  This needs to be displayed on screen in the
                                                                                         form of spell icons with a clock-wipe (and probably a scale/fade out).
-    Cast Feedback                       PLANNING STAGE                                	Maybe put the cast messages directly in the chat box?  Probably.
-    Wands and Armor                     PLANNING STAGE                                  School specific buffs for wearing a full set (ie, full black magi robes gives you special
-                                                                                        effects on black-magic spells.)  Each individual piece increases your mana pool.  Wearing
-                                                                                        mix-and-match set pieces increases your spell intensity in each school you are wearing
-                                                                                        roughly proportionately.
-                                                                                        Toying around with the idea of the last spell cast by a wand before it breaks being super
-                                                                                        powerful.
-                                                                                        Wooden wand has set durability.  Each tier of wand above it comes with increasingly faster
-                                                                                        self-repair, although the best self-repair should still be fairly slow.
-                                                                                        Possibly make it so wearing full magi robes limits the max tick of damage you can take per
-                                                                                        instance of damage to 1 heart, and then add a short 1s invulnerability timer between
-                                                                                        instances of damage.  Then could balance it a bit by making arrow shots deal 2 hearts worth
-                                                                                        and don't trigger the timer.  Melee weapons could also do extra damage and have a shorter
-                                                                                        timer as well.
+    Wands and Armor                     PLANNING STAGE                                  
     Mana                                PLANNING STAGE                                	Needs to be planned out.
     Places of Power                     PLANNING STAGE                                  Needs to be planned out.
     Curse/debuff System                	PRE-PLANNING STAGE                              Needs to be decided if it will be included or not.
@@ -85,6 +72,8 @@ Spells:
                                                                                         duration with an absurd cool down (ie: 45-60 second duration, 3-5 minute cool down.)
                                                                                         Possibly require feathers or something for either the incantation to work or maybe for an
                                                                                         extended flight duration...?  Lots to think about here.
+    Gust                                IMPLEMENTED                                     Sends an arcing force of wind outward from the player knocking entities back and dealing
+                                                                                        a marginal amount of damage.
     Illuminate                        	IMPLEMENTED                                     Needs work on the algorithm to achieve spreading the lights out a bit better (as to
                                                                                         reduce the # of lights required for a good effect.)  Less lights = less lag.
                                                                                         The proper implementation is probably to determine the ceilings/floor/walls and place

@@ -1,0 +1,62 @@
+package purebe.battlemage.magic;
+
+import java.util.Arrays;
+import java.util.List;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.Vec3;
+import net.minecraft.world.WorldServer;
+import purebe.battlemage.magic.SpellCaster.SpellName;
+import purebe.battlemage.magic.SpellCaster.SpellSymbol;
+
+public class GustSpell extends Spell {
+	final EntityPlayer     player;
+	final Vec3             playerLookat;
+	
+	public GustSpell(ResourceLocation icon) {
+		player = null;
+		playerLookat = null;
+		this.icon = icon;
+	}
+
+	public GustSpell(EntityPlayer player, Vec3 playerLookat) {
+		this.player = player;
+		this.playerLookat = playerLookat;
+		this.intensity = 1;
+	}
+	
+	@Override
+	public void cast() {
+		for (int i = 0; i < 500; ++i) {
+			/*player.worldObj.spawnParticle(EnumParticleTypes.HEART,
+			                              player.getPosition().getX() + (5 * playerLookat.xCoord),
+			                              player.getPosition().getY() + (0 * playerLookat.yCoord),
+			                              player.getPosition().getZ() + (5 * playerLookat.zCoord),
+			                              1.5f,
+			                              1.5f,
+			                              1.5f,
+			                              new int[0]);*/
+		    ((WorldServer)player.worldObj).spawnParticle(EnumParticleTypes.FLAME,
+		                                                 player.posX + (i*2 * playerLookat.xCoord),
+		                                                 player.posY,
+		                                                 player.posZ + (i*2 * playerLookat.zCoord),
+		                                                 1,
+		                                                 player.getRNG().nextDouble(),
+		                                                 player.getRNG().nextDouble(),
+		                                                 player.getRNG().nextDouble(),
+		                                                 0, new int[0]);
+		}
+	}
+	
+	@Override
+	public List<SpellSymbol> getIncantation() {
+		return Arrays.asList(SpellSymbol.Black, SpellSymbol.Power, SpellSymbol.Black, SpellSymbol.Chaos, SpellSymbol.Black);
+	}
+
+	@Override
+	public SpellName getName() {
+		return SpellName.Gust;
+	}
+}

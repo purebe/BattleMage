@@ -1,0 +1,41 @@
+package purebe.battlemage.magic;
+
+import java.util.Arrays;
+import java.util.List;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.Vec3;
+import purebe.battlemage.magic.SpellCaster.SpellName;
+import purebe.battlemage.magic.SpellCaster.SpellSymbol;
+
+public class GustSpell extends Spell {
+	final EntityPlayer     player;
+	final Vec3             playerLookat;
+	
+	public GustSpell(ResourceLocation icon) {
+		player = null;
+		playerLookat = null;
+		this.icon = icon;
+	}
+
+	public GustSpell(EntityPlayer player, Vec3 playerLookat) {
+		this.player = player;
+		this.playerLookat = playerLookat;
+		this.intensity = 1;
+	}
+	
+	@Override
+	public void cast() {
+	}
+	
+	@Override
+	public List<SpellSymbol> getIncantation() {
+		return Arrays.asList(SpellSymbol.White, SpellSymbol.Nature, SpellSymbol.Chaos);
+	}
+
+	@Override
+	public SpellName getName() {
+		return SpellName.Gust;
+	}
+}

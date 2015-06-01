@@ -145,6 +145,9 @@ public class GuiEvents {
 		case MagicalWall:
 			GlStateManager.color(0.54f, 0.95f, 0.76f, alpha);
 			break;
+		case Gust:
+			GlStateManager.color(0.09f, 0.035f, 0.125f, alpha);
+			break;
 		default:
 			break;
 		}

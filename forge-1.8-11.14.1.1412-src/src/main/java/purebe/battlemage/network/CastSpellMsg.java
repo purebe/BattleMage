@@ -6,6 +6,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import purebe.battlemage.magic.ArtilleryCattleSpell;
+import purebe.battlemage.magic.GustSpell;
 import purebe.battlemage.magic.IlluminateSpell;
 import purebe.battlemage.magic.MagicalWallSpell;
 import purebe.battlemage.magic.Spell;
@@ -59,6 +60,9 @@ public class CastSpellMsg implements IMessage {
 						break;
 					case MagicalWall:
 						spell = new MagicalWallSpell(finalContext.getServerHandler().playerEntity, finalMsg.playerLookat);
+						break;
+					case Gust:
+						spell = new GustSpell(finalContext.getServerHandler().playerEntity, finalMsg.playerLookat);
 						break;
 					default:
 						break;

@@ -8,14 +8,11 @@ import purebe.battlemage.magic.SpellCaster.SpellSymbol;
 
 public abstract class Spell {
 	protected int cdTick = 0;
-	protected int cdDuration = 5 * 60;
+	protected int cdDuration = 5;// * 60;
 	protected int intensity = 0;
 	protected ResourceLocation icon = null;
 	
-	public void cast() {
-		cdTick = cdDuration;
-	}
-	
+	public abstract void cast();
 	public abstract List<SpellSymbol> getIncantation();
 	public abstract SpellName getName();
 	
