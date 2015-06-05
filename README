@@ -20,21 +20,21 @@ Systems:
                                                                                         then when the global cool down is up automatically load them into the current incantation.
     Spell Cool Downs                	IMPLEMENTED                                	    Each spell should have it's own cool down.  This needs to be displayed on screen in the
                                                                                         form of spell icons with a clock-wipe (and probably a scale/fade out).
-    Wands and Armor                     PLANNING STAGE                                  
-    Mana                                PLANNING STAGE                                	Needs to be planned out.
+    Wands and Armour                    PLANNING STAGE                                  When equipped wands/armour regen your mana over time, at the cost of their durability.
+                                                                                        Also will provide a small amount of actual defence, but limited still as mages should be
+                                                                                        weak to physical attacks (the best set should probably be ~half of iron armour.)
+    Mana                                PLANNING STAGE                                	Spells each cost a set amount of mana, the cost of casting is reduced by wearing the
+                                                                                        robes of the same school.  It automatically regens over time even if you are naked, but
+                                                                                        it's very slow.  It should be enough to cast really simple spells fairly often but higher
+                                                                                        tier spells should have drastically higher mana costs.
     Places of Power                     PLANNING STAGE                                  Needs to be planned out.
     Curse/debuff System                	PRE-PLANNING STAGE                              Needs to be decided if it will be included or not.
     In-game Spell Browser               PLANNING STAGE                                	No idea how this should be done yet.  A book is the classic example but is not super 
                                                                                         user friendly.  It would be nice to have some kind of "mage training" or something to 
                                                                                         guide the player towards learning the spells as second nature.
-    Progression System                	PRE-PLANNING STAGE                              Not sure if this is needed, but it would keep the mod interesting for survival players.
-                                                                                        On the other hand it would impede battle style play such as in "The Walls."  Coming up
-                                                                                        with a system that satisfies both use cases would be really nice.
-                                                                                        Probably just need to scrap that idea and focus on a SMP-friendly system with a config
-                                                                                        option to disable it for PvP battle arena style play.
-                                                                                        Thinking about somehow having multiple tiers and you start by crafting a wooden wand, 
-                                                                                        and then you have the option to make either a basic White, Black, Chaos, or Nature
-                                                                                        wand.  Power doesn't act as a school of magic, but rather a utility rune.
+    Progression System                	PRE-PLANNING STAGE                              The progression system probably just needs to be some kind of researching system, where
+                                                                                        the player researches spells to unlock them.  Not sure of the details yet, but, this is
+                                                                                        very likely the direction to head in.
     Mod Wiki                        	PLANNING STAGE                                	Needs to be done.  Will have a list of all the spells, their runes, mana cost, short
                                                                                         description.  Same for basically everything else in the mod too.
     Git Repo                        	FINISHED                                        
@@ -46,6 +46,7 @@ Systems:
 Spells:
 
     NAME                                STATUS                                        	NOTES
+    Anchor (Recall)                     PLANNING                                        Cast to set an anchor for the recall spell.  May only have one anchor at any given time.
     Artillery Cattle                	IMPLEMENTED                                     Needs some balancing, the time-bomb portion is probably way too strong.  One possible
                                                                                         solution is to make it anti-air, where the explosion strength is really low close to
                                                                                         the ground, but increases as it gets higher up in the sky.  It would be very hard to
@@ -81,6 +82,8 @@ Spells:
                                                                                         visible.)  Maybe make all the lights disappear at the same time for lag reasons too.
     Invulnerability                     PLANNING                                        The casting player becomes immune to all sources of damage for a very short duration (3-5
                                                                                         seconds.)  Has a long cool down (~5 minutes.)
+    Recall (Anchor)                     PLANNING                                        When cast will teleport player to his anchor position (if he has set one.)  Otherwise fizzles
+                                                                                        out.  Does not remove anchor on cast.  Should have chance of crazy failure if very far away.
     Regenerate                          PLANNING                                        Slowly heals the casting player over x duration for y hearts.
     Teleport                            IMPLEMENTED                                     A short-ranged teleport that can go through walls.  Works by detecting if you are standing
                                                                                         next to a wall, and teleporting trying to teleport you through the wall if you are.  If

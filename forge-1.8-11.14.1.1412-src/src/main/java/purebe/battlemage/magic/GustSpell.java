@@ -35,6 +35,8 @@ public class GustSpell extends Spell {
 	@Override
 	public void cast() {
 		List<Entity> entityList = new ArrayList<Entity>();
+		// TODO: Send a packet to nearby/all clients handling
+		// the spawning of the particles (since this is packet-spammy)
 		for (int i = 0; i < 18; ++i) {
 			double offsetX = player.posX + (i * playerLookat.xCoord);
 			double offsetY = player.posY + (i * playerLookat.yCoord);
