@@ -7,9 +7,4 @@ import purebe.battlemage.battlemage.BattleMage;
 import purebe.battlemage.battlemage.ClientProxy;
 
 public class LivingEntityEvents {
-    @SubscribeEvent
-    public void onLivingUpdateEvent(LivingEvent.LivingUpdateEvent event) {
-        if (event.entity instanceof EntityPlayer) {
-        }
-    }
 }

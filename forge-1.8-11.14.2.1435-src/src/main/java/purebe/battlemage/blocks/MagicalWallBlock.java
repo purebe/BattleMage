@@ -16,6 +16,8 @@ public class MagicalWallBlock extends BlockBreakable
     public MagicalWallBlock(Material material)
     {
         super(material, false);
+        this.setHardness(2.5F);
+        this.setHarvestLevel("pickaxe", 0);
     }
 
     /**
