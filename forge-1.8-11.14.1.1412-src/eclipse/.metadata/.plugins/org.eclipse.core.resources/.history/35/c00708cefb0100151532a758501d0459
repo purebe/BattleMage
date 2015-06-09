@@ -1,9 +1,0 @@
-package purebe.battlemage.eventhandlers;
-
-public class GuiEvents {
-
-	@SubscribeEvent
-	public void RenderGameOverlayEvent(RenderGameOverlayEvent event) {
-		
-	}
-}

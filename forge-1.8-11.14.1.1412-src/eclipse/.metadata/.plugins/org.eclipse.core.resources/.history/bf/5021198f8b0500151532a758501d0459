@@ -1,7 +1,0 @@
-package purebe.battlemage.magic;
-
-
-public interface ISpell {
-	final int cooldown;
-	void cast();
-}

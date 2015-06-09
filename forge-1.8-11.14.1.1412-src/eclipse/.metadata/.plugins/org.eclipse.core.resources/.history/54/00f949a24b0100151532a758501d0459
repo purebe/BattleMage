@@ -1,6 +1,0 @@
-{
-    "parent":"woahter:item/standard_item",
-    "textures": {
-        "layer0":"woahter:items/woahter_item"
-    }
-}

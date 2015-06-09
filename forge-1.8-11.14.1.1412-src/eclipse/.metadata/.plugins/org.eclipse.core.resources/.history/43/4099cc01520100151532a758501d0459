@@ -1,6 +1,0 @@
-{
-    "variants": {
-        "normal": { "model": "battlemage:illuminated_air" }
-        "inventory": { "model": "battlemage:illuminated_air" }     
-    }
-}

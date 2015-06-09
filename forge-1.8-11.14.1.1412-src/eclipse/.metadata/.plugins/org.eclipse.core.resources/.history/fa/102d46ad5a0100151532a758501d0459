@@ -1,5 +1,0 @@
-package purebe.battlemage.magic;
-
-public final class Spells {
-	public static List<SpellSymbols> Illuminate = new ArrayList<SpellSymbols>(3) { };
-}

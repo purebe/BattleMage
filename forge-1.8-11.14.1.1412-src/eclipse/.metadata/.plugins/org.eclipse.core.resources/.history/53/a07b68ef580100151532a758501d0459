@@ -1,9 +1,0 @@
-package purebe.battlemage.magic;
-
-public class SpellCasting {
-	public enum SpellSymbols {
-		White, Black, Chaos, Nature, Power
-	}
-	
-	public List<SpellSymbols> currentIncantation;
-}

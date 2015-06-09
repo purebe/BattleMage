@@ -1,8 +1,0 @@
-package purebe.battlemage.magic;
-
-
-
-public abstract class Spell {
-	static SpellName Name = SpellName.None;
-	public abstract void cast();
-}
