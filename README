@@ -67,7 +67,7 @@ Spells:
     Feral Companion                     PLANNING                                        Summon 2 tamed dogs for the player that have a timed life, and maybe some strength buffs.
                                                                                         Cool down should probably be half the duration of the spell, and if player re-casts the
                                                                                         spell then it should summon 2 new dogs and kill the current ones if they are still alive.
-    Fly                                 PLANNING                                        This spell probably requires the most balancing of all.  If it is overpowered it will ruin
+    Fly                                 IMPLEMENTED                                     This spell probably requires the most balancing of all.  If it is overpowered it will ruin
                                                                                         the feel of the game.  Current two options that seem reasonable are either low duration with
                                                                                         a long cool down (ie: 10-15 second duration, 30-45 second cool down.)  Or, possibly a long
                                                                                         duration with an absurd cool down (ie: 45-60 second duration, 3-5 minute cool down.)
